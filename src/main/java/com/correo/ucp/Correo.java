@@ -19,6 +19,7 @@ public class Correo {
       public String getContenido() {
           return contenido;
       }
+      
   
   
     }
