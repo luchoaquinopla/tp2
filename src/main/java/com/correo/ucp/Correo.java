@@ -12,11 +12,14 @@ public class Correo {
     private List<Contacto> para = new ArrayList<>();
   
     
-    public Correo(String asunto, String contenido,Contacto remitente,List<Contacto> destinatarios ){
+    public Correo(String asunto, String contenido,Contacto remitente ){
       this.asunto = asunto; 
       this.contenido = contenido;
       this.remitente = remitente;
     
+    }
+    public Correo(){
+
     }
        public String getAsunto() {
           return asunto;
