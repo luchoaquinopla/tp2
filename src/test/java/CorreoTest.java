@@ -18,11 +18,13 @@ public class CorreoTest {
 }
      @Test
     public void testCrearNuevoCorreo() {
-       Contacto remitente = new Contacto("Remitente", "remitente@example.com");
-          Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente);
+       List<Contacto> para = new ArrayList<>();
+        Contacto remitente = new Contacto("Remitente", "remitente@example.com");
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente,para);
         assertEquals("Asunto de prueba", correo.getAsunto());
         assertEquals("Contenido de prueba", correo.getContenido());
         assertEquals(remitente, correo.getRemitente());
+        
     
     }
     
@@ -40,9 +42,28 @@ public class CorreoTest {
         Contacto persona1 = new Contacto();
         Contacto persona2 = new Contacto();
         correo.agregar(persona1);
-     correo.agregar(persona2);
-    assertTrue(correo.getPara().contains(persona1));
-    assertTrue(correo.getPara().contains(persona2));
+        correo.agregar(persona2);
+        assertTrue(correo.getPara().contains(persona1));
+        assertTrue(correo.getPara().contains(persona2));
 
     }
+    
+    @Test
+    public void testEnviar() {
+        Contacto remitente = new Contacto("lucho", "lucho@gmail.com");
+        Contacto destinatario = new Contacto("destinatario", "destinatario@gmail.com");
+        List<Contacto> para = new ArrayList<>();
+        Correo correo = new Correo("hola", "como estas", remitente, para);
+        correo.agregar(destinatario);
+        correo.enviar(correo);
+        assertTrue(remitente.getBandejaEnviados().contains(correo));
+         assertTrue(destinatario.getBandejaEntrada().contains(correo));
+
+     
+    }
 }
+
+    
+    
+ 
+
