@@ -61,6 +61,24 @@ public class CorreoTest {
 
      
     }
+    @Test
+    public void agregarCorreoAEnviados_test(){
+         List<Contacto> para = new ArrayList<>();
+        Contacto persona1 = new Contacto("lucho", "lucho@gmail.com");
+        Correo correo = new Correo("hola", "hola como estas", persona1,para);
+        persona1.agregarCorreoAEnviados(correo);
+        assertTrue(persona1.getBandejaEnviados().contains(correo));
+      
+    }
+     @Test
+    public void agregarCorreoRecibidos_test(){
+         List<Contacto> para = new ArrayList<>();
+        Contacto persona1 = new Contacto("lucho", "lucho@gmail.com");
+        Correo correo = new Correo("hola", "hola como estas", persona1,para);
+        persona1.agregarCorreoARecibidos(correo);
+        assertTrue(persona1.getBandejaEntrada().contains(correo));
+      
+    }
 }
 
     
