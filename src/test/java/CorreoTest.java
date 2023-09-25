@@ -79,6 +79,26 @@ public class CorreoTest {
         assertTrue(persona1.getBandejaEntrada().contains(correo));
       
     }
+    @Test
+    public void testGetAsunto() {
+        Contacto remitente = new Contacto();
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente, new ArrayList<>());
+        assertEquals("Asunto de prueba", correo.getAsunto());
+    }
+    @Test
+    public void testGetContenido() {
+       Contacto remitente = new Contacto();
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba",remitente , new ArrayList<>());
+        assertEquals("Contenido de prueba", correo.getContenido());
+    }
+    @Test
+    public void testGetRemitente() {
+    
+        Contacto remitente = new Contacto("remitente","lucho@gmail.com");
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba",remitente, new ArrayList<>());
+        assertEquals(remitente, correo.getRemitente());
+    }
+
 }
 
     
