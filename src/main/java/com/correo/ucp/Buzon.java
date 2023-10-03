@@ -20,8 +20,8 @@
     public String getCorreoInterno(){
         return  correoInterno;
     }
-    public void setCorreoInterno(String correoInterno){
-        this.correoInterno = correoInterno;
+    public void setCorreoInterno(String nuevoCorreoInterno){
+        this.correoInterno = nuevoCorreoInterno;
     }
     public List<Correo> getBandejaEntrada() {
         return bandejaEntrada;
@@ -30,6 +30,8 @@
     public List<Correo> getBandejaEnviados() {
         return bandejaEnviados;
     }
-
+    public void setBandejaEntrada(List<Correo> nuevaBandejaEntrada) {
+        this.bandejaEntrada = nuevaBandejaEntrada;
+    }
 
     }
