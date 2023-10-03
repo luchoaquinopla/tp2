@@ -1,30 +1,35 @@
-package com.correo.ucp;
+    package com.correo.ucp;
 
-import java.util.ArrayList;
-import java.util.List;
+    import java.util.ArrayList;
+    import java.util.List;
 
-public class Buzon {
-    private String correo;
-    public List<Correo> bandejaEntrada = new ArrayList<>();
-    public List<Correo> bandejaEnviados = new ArrayList<>();
-    public Buzon(){
+    public class Buzon {
+        private String correoInterno;
+        public List<Correo> bandejaEntrada; 
+        public List<Correo> bandejaEnviados; 
+        public Buzon(){
+
+        }
+        public Buzon(String correoInterno, List<Correo> bandejaEntrada, List<Correo> bandejaEnviados){
+            this.correoInterno = correoInterno;
+            this.bandejaEntrada = new ArrayList<>();
+            this.bandejaEnviados = new ArrayList<>();
+
+        }
+
+    public String getCorreoInterno(){
+        return  correoInterno;
+    }
+    public void setCorreoInterno(String correoInterno){
+        this.correoInterno = correoInterno;
+    }
+    public List<Correo> getBandejaEntrada() {
+        return bandejaEntrada;
+    }
+
+    public List<Correo> getBandejaEnviados() {
+        return bandejaEnviados;
+    }
+
 
     }
-    public Buzon(String correo, List<Correo> bandejaEntrada, List<Correo> bandejaEnviados){
-        this.correo = correo;
-        this.bandejaEntrada = bandejaEntrada; 
-        this.bandejaEnviados = bandejaEnviados;
-
-    }
-
- 
- public List<Correo> getBandejaEntrada() {
-    return bandejaEntrada;
-}
-
-public List<Correo> getBandejaEnviados() {
-    return bandejaEnviados;
-}
-
-
-}

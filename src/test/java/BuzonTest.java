@@ -18,7 +18,7 @@ public class BuzonTest {
     @Test
     public void testGetBandejaEnviados() {
      
-        Buzon buzon = new Buzon();
+        Buzon buzon = new Buzon("asdasfqasd",new ArrayList<>(), new ArrayList<>());
         assertTrue(buzon.getBandejaEnviados().isEmpty());
     }
     @Test
@@ -28,8 +28,8 @@ public class BuzonTest {
         Buzon buzon = new Buzon("correo@example.com", new ArrayList <>(), new ArrayList<>());
 
         // Crear instancias de Correo
-        Correo correo1 = new Correo("Asunto 1", "Contenido 1", remitente);
-        Correo correo2 = new Correo("Asunto 2", "Contenido 2", remitente);
+        Correo correo1 = new Correo("Asunto 1", "Contenido 1", remitente, new ArrayList<>());
+        Correo correo2 = new Correo("Asunto 2", "Contenido 2", remitente, new ArrayList<>());
 
         // Agregar elementos a la bandeja de entrada
         buzon.getBandejaEntrada().add(correo1);

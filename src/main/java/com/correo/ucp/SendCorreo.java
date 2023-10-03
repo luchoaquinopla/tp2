@@ -1,32 +1,50 @@
-package com.correo.ucp;
 
+ package com.correo.ucp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class SendCorreo  {
-        private List<Buzon> para = new ArrayList<>();
-        private Buzon remitente;
-        private Correo correo;
+public class SendCorreo {
 
-        public SendCorreo(List<Buzon> para, Buzon remitente, Correo correo){
-            this.para = new ArrayList<>(para); 
-             this.remitente = remitente;
-            this.correo = correo;
+    private List<Buzon> buzones = new ArrayList<>();
+    private Correo email;
+ 
+    public SendCorreo(){
+    }
 
-        }
+    public SendCorreo(List<Buzon> buzones, Correo email) {
+        this.buzones = new ArrayList<>(buzones);
+        this.email = email;
+    }
+
+    public void agregarbuzones(Buzon usuario){
+        buzones.add(usuario);
+    }
+
+    public List<Buzon> getPara() {
+        return buzones;
+    }
+    public void getCorreo(){
+
+    }
+    
+    public Correo getEmail() {
+        return email;
+    }
+
+    public void setPara(List<Buzon> para) {
+        this.buzones = para;
+    }
+
+    public void enviarEmail(Correo email) {
+        Buzon remitente = email.getRemitente();
         
-        public List<Buzon> getPara() {
-            return para;
-        }
-          
-          public void agregar(Buzon usuario){
-            para.add(usuario);
-          }
-
-    public void enviar(SendCorreo cartero) {
-        remitente.getBandejaEnviados().add(correo); 
-        for (Buzon destinatario: para) {
-            destinatario.getBandejaEntrada().add(correo); 
-        }
+        Optional<Buzon> buzonDestinatario = buzones.stream().filter(buzon -> buzon.getCorreoInterno().equals(remitente.getCorreoInterno())).findFirst();
+    
+        // If recipient buzon is found, add the email to its bandejaSalida
+        buzonDestinatario.ifPresent(destinatario -> destinatario.getBandejaEnviados().add(email));
+        email.getPara().forEach(b -> b.getBandejaEntrada().add(email)); // Agrega el correo a la bandeja de entrada de los demás buzones
     }
 }
+
+        

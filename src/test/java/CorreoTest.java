@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ public class CorreoTest {
      @Test
     public void testCrearNuevoCorreo() {
         Contacto remitente = new Contacto("Remitente", "remitente@example.com");
-        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente);
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente, new ArrayList<>());
         assertEquals("Asunto de prueba", correo.getAsunto());
         assertEquals("Contenido de prueba", correo.getContenido());
         assertEquals(remitente, correo.getRemitente());
@@ -27,19 +28,19 @@ public class CorreoTest {
  @Test
     public void testGetAsunto() {
         Contacto remitente = new Contacto();
-        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente);
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente, new ArrayList<>());
         assertEquals("Asunto de prueba", correo.getAsunto());
     }
     @Test
     public void testGetContenido() {
        Contacto remitente = new Contacto();
-        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba",remitente);
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba",remitente, new ArrayList<>());
         assertEquals("Contenido de prueba", correo.getContenido());
     }
     @Test
     public void testGetRemitente() {
          Contacto remitente = new Contacto("remitente","lucho@gmail.com");
-        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba",remitente);
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba",remitente,new ArrayList<>());
         assertEquals(remitente, correo.getRemitente());
     }
     @Test
