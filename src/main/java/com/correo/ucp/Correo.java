@@ -6,17 +6,17 @@ import java.util.List;
 public class Correo {
     private String asunto;
     private String contenido;
-    private Buzon remitente;
-    private List<Buzon> para = new ArrayList<>();
+    private String remitente;
+    private List<String > para = new ArrayList<>();
     
-    public Correo(String asunto, String contenido,Buzon remitente, Buzon paraUnico ){
+    public Correo(String asunto, String contenido,String remitente, String  paraUnico ){
       this.asunto = asunto; 
       this.contenido = contenido;
       this.remitente = remitente;
       this.para.add(paraUnico);
 
     }
-    public Correo(String asunto, String contenido,Buzon remitente, List<Buzon>paraVarios){
+    public Correo(String asunto, String contenido,String  remitente, List<String >paraVarios){
       this.asunto = asunto; 
       this.contenido = contenido;
       this.remitente = remitente;
@@ -33,7 +33,7 @@ public class Correo {
       public String getContenido() {
           return contenido;
       }
-      public Buzon getRemitente() {
+      public String  getRemitente() {
         return remitente;
     }
      
@@ -43,10 +43,10 @@ public class Correo {
         public void setContenido(String nuevoContenido){
           this.contenido = nuevoContenido;
       }
-        public void setRemitente(Buzon nuevoRemitente) {
+        public void setRemitente(String  nuevoRemitente) {
         this.remitente = nuevoRemitente;
     }
-    public List<Buzon> getPara() {
+    public List<String > getPara() {
       return para;
   }
    

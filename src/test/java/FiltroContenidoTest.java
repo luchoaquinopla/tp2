@@ -15,9 +15,9 @@ public class FiltroContenidoTest {
     public void testFiltrarPorContenido() {
         Buzon buzon = new Buzon();
         List<Correo> bandejaEntrada = new ArrayList<>();
-        Correo correo1 = new Correo("Asunto 1", "Contenido 1", buzon, new Buzon());
-        Correo correo2 = new Correo("Asunto 2", "Contenido 2", buzon, new Buzon());
-        Correo correo3 = new Correo("Asunto 1", "Contenido 1", buzon, new Buzon());
+        Correo correo1 = new Correo("Asunto 1", "Contenido 1", "buzon", new ArrayList<>());
+        Correo correo2 = new Correo("Asunto 2", "Contenido 2", "buzon", new ArrayList<>());
+        Correo correo3 = new Correo("Asunto 1", "Contenido 1", "buzon", new ArrayList<>());
 
         buzon.setBandejaEntrada(bandejaEntrada); 
         buzon.getBandejaEntrada().add(correo1);

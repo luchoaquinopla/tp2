@@ -23,13 +23,13 @@ public class BuzonTest {
     }
     @Test
     public void testAgregarElementos() {
-      Buzon remitente = new Buzon();
+      
         // Crear una instancia de Buzon
         Buzon buzon = new Buzon("correo@example.com", new ArrayList <>(), new ArrayList<>());
 
         // Crear instancias de Correo
-        Correo correo1 = new Correo("Asunto 1", "Contenido 1", remitente, new ArrayList<>());
-        Correo correo2 = new Correo("Asunto 2", "Contenido 2", remitente, new ArrayList<>());
+        Correo correo1 = new Correo("Asunto 1", "Contenido 1", "remitente", new ArrayList<>());
+        Correo correo2 = new Correo("Asunto 2", "Contenido 2", "remitente", new ArrayList<>());
 
         // Agregar elementos a la bandeja de entrada
         buzon.getBandejaEntrada().add(correo1);

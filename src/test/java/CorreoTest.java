@@ -17,33 +17,33 @@ public class CorreoTest {
 }
    @Test
 public void testCrearNuevoCorreo() {
-    Buzon remitente = new Buzon();
-    Buzon destinatario = new Buzon(); 
-    Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente, destinatario);
+  
+    
+    Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", "remitente", "destinatario");
     assertEquals("Asunto de prueba", correo.getAsunto());
     assertEquals("Contenido de prueba", correo.getContenido());
-    assertEquals(remitente, correo.getRemitente());
-    assertEquals(destinatario, correo.getPara().get(0)); 
+    assertEquals("remitente", correo.getRemitente());
+    assertEquals("destinatario", correo.getPara().get(0)); 
 }
 
  
  @Test
     public void testGetAsunto() {
       Buzon remitente = new Buzon();
-        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", remitente, new ArrayList<>());
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", "remitente", new ArrayList<>());
         assertEquals("Asunto de prueba", correo.getAsunto());
     }
     @Test
     public void testGetContenido() {
-      Buzon remitente = new Buzon();
-        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba",remitente, new ArrayList<>());
+     
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba","remitente", new ArrayList<>());
         assertEquals("Contenido de prueba", correo.getContenido());
     }
     @Test
     public void testGetRemitente() {
-         Buzon remitente = new Buzon();
-        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba",remitente,new ArrayList<>());
-        assertEquals(remitente, correo.getRemitente());
+         
+        Correo correo = new Correo("Asunto de prueba", "Contenido de prueba","remitente",new ArrayList<>());
+        assertEquals("remitente", correo.getRemitente());
     }
     @Test
     public void testSetAsunto() {
@@ -60,10 +60,10 @@ public void testCrearNuevoCorreo() {
     }
     @Test
     public void testSetRemitente() {
-        Buzon remitente = new Buzon();
+       
         Correo correo = new Correo();
-        correo.setRemitente(remitente); 
-        assertEquals(remitente, correo.getRemitente());
+        correo.setRemitente("remitente"); 
+        assertEquals("remitente", correo.getRemitente());
     }
 }
 

@@ -19,11 +19,12 @@ public class SendCorreoTest {
         Buzon buzon2 = new Buzon("correo1@example.com", new ArrayList<>(), new ArrayList<>());
     
         // Crear instancias de Correo
-        Correo correo1 = new Correo("Asunto 1", "Contenido 1", buzon, buzon2);
-        Correo correo2 = new Correo("Asunto 1", "Contenido 1", buzon, buzon2);
-        Correo correo3 = new Correo("Asunto 1", "Contenido 1", buzon, buzon);
+        Correo correo1 = new Correo("Asunto 1", "Contenido 1", "correo@example.com","correo1@example.com");
+        Correo correo2 = new Correo("Asunto 1", "Contenido 1", "correo@example.com", "correo1@example.com");
+        Correo correo3 = new Correo("Asunto 1", "Contenido 1", "correo@example.com", "correo@example.com");
     
-        cartero.agregarbuzones(buzon);  // Add buzon to the cartero's list of buzones
+        cartero.agregarbuzones(buzon);
+        cartero.agregarbuzones(buzon2);   // Add buzon to the cartero's list of buzones
         cartero.enviarEmail(correo1);
         cartero.enviarEmail(correo2);
         cartero.enviarEmail(correo3);
