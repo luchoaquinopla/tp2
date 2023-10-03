@@ -23,7 +23,7 @@ public class BuzonTest {
     }
     @Test
     public void testAgregarElementos() {
-        Contacto remitente = new Contacto();
+      Buzon remitente = new Buzon();
         // Crear una instancia de Buzon
         Buzon buzon = new Buzon("correo@example.com", new ArrayList <>(), new ArrayList<>());
 
