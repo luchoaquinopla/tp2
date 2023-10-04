@@ -8,7 +8,7 @@ public class FiltroContenido {
         List<Correo> bandejaEntrada = buzon.getBandejaEntrada();
         
         // Filtrar los correos por asunto
-        List<Correo> correosFiltrados = bandejaEntrada.stream().filter(correo -> correo.getContenido().equals(contenido)).collect(Collectors.toList());
+        List<Correo> correosFiltrados = bandejaEntrada.stream().filter(correo -> correo.getContenido().contains(contenido)).collect(Collectors.toList());
 
         return correosFiltrados;
     }

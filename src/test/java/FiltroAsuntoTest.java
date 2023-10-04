@@ -25,12 +25,14 @@ public class FiltroAsuntoTest {
         buzon.getBandejaEntrada().add(correo3);
 
         FiltroAsunto filtro = new FiltroAsunto();
-        List<Correo> correosFiltrados = filtro.filtrarPorAsunto(buzon, "Asunto 1");
+        List<Correo> correosFiltrados = filtro.filtrarPorAsunto(buzon, "Asunto");
 
     
-        assertEquals(2, correosFiltrados.size()); 
+        assertEquals(3, correosFiltrados.size()); 
         assertEquals("Asunto 1", correosFiltrados.get(0).getAsunto());
-        assertEquals("Asunto 1", correosFiltrados.get(1).getAsunto());
+        assertEquals("Asunto 2", correosFiltrados.get(1).getAsunto());
+        assertEquals("Asunto 1", correosFiltrados.get(2).getAsunto());
+        
     }
 }
 

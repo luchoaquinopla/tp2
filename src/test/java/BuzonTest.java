@@ -1,7 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
-import com.correo.ucp.Contacto;
 import org.junit.Test;
 
 import com.correo.ucp.Buzon;
