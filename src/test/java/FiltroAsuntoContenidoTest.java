@@ -53,7 +53,7 @@ public class FiltroAsuntoContenidoTest {
 
         assertEquals(2, correosFiltrados.size());
         assertEquals("juan@gmail.com", correosFiltrados.get(0).getRemitente());
-        assertEquals("lucasn@gmail.com", correosFiltrados.get(3).getRemitente());
+        assertEquals("lucas@gmail.com", correosFiltrados.get(1).getRemitente());
     }
 
 }
