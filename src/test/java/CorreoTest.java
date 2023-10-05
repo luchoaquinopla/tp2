@@ -1,20 +1,17 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
 import com.correo.ucp.Correo;
-import com.correo.ucp.Buzon;
-import com.correo.ucp.Contacto; 
+
+
 
 public class CorreoTest {
-    @Test
-    public void agregarcontactoTest() {
-   Correo correo = new Correo();
-   Contacto contacto = new Contacto();
 
-}
    @Test
 public void testCrearNuevoCorreo() {
   
@@ -29,7 +26,7 @@ public void testCrearNuevoCorreo() {
  
  @Test
     public void testGetAsunto() {
-      Buzon remitente = new Buzon();
+     
         Correo correo = new Correo("Asunto de prueba", "Contenido de prueba", "remitente", new ArrayList<>());
         assertEquals("Asunto de prueba", correo.getAsunto());
     }
@@ -64,6 +61,22 @@ public void testCrearNuevoCorreo() {
         Correo correo = new Correo();
         correo.setRemitente("remitente"); 
         assertEquals("remitente", correo.getRemitente());
+    }
+    @Test
+    public void testParaVarios(){
+        List<String> para = new ArrayList<>();
+        String destinatario = "pepe@gmail.com";
+        String destinatario1 = "pipo@gmail.com";
+        String destinatario2 = "pupu@gmail.com";
+        para.add(destinatario);
+        para.add(destinatario1);
+        para.add(destinatario2);
+        Correo correo = new Correo("Asunto", "Contenido", "remitente@example.com", para);
+        assertEquals(3, para.size());
+        assertEquals("pepe@gmail.com",correo.getPara().get(0));
+         assertEquals("pipo@gmail.com",correo.getPara().get(1));
+          assertEquals("pupu@gmail.com",correo.getPara().get(2));
+       
     }
 }
 

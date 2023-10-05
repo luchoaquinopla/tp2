@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -55,5 +56,18 @@ public class ContactoTest {
     contacto.setCorreo("pepe@gmail.com");
     assertEquals("pepe@gmail.com", contacto.getCorreo());
  }
+    @Test
+    public void testCrearContactoConCorreoInvalido() {
+        try {
+          
+            Contacto contacto = new Contacto("Juan", "correo.invalido");
+            
+           
+            
+        } catch (IllegalArgumentException e) {
+          
+           
+        }
+    }
 
 }
