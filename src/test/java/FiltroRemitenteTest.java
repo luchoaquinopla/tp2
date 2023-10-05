@@ -27,7 +27,7 @@ public class FiltroRemitenteTest { // Cambia el nombre de la clase de prueba
         List<Correo> correosFiltrados = filtro.filtrarPorRemitente(buzon, "@gmail.com");
 
         assertEquals(2, correosFiltrados.size()); 
-        assertEquals("pedro@gmail.com", correosFiltrados.get(0).getRemitente()); // Debes comparar el remitente, no el contenido
+        assertEquals("pedro@gmail.com", correosFiltrados.get(0).getRemitente()); 
         assertEquals("pedro@gmail.com", correosFiltrados.get(1).getRemitente());
     }
 }
