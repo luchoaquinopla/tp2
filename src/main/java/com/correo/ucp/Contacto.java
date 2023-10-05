@@ -4,8 +4,8 @@ public class Contacto {
     private String nombre;
     private String correo;
 
-    public Contacto(String name, String correo) {
-        this.nombre = name; 
+    public Contacto(String nombre, String correo) {
+        this.nombre = nombre; 
         this.correo = correo;
         // Validar el correo electrónico antes de asignarlo
         if (validarEmail(correo)) {
