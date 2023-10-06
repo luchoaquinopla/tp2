@@ -24,9 +24,7 @@ public class SendCorreo {
     public List<Buzon> getPara() {
         return buzones;
     }
-    public void getCorreo(){
-
-    }
+    
     
     public Correo getEmail() {
         return email;

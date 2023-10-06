@@ -24,39 +24,37 @@ public class SendCorreo {
     public List&lt;Buzon&gt; getPara() {
 <span class="fc" id="L25">        return buzones;</span>
     }
-    public void getCorreo(){
-
-<span class="nc" id="L29">    }</span>
+    
     
     public Correo getEmail() {
-<span class="fc" id="L32">        return email;</span>
+<span class="fc" id="L30">        return email;</span>
     }
 
     public void setPara(List&lt;Buzon&gt; para) {
-<span class="nc" id="L36">        this.buzones = para;</span>
-<span class="nc" id="L37">    }</span>
+<span class="fc" id="L34">        this.buzones = para;</span>
+<span class="fc" id="L35">    }</span>
 
     public void enviarEmail(Correo email) {
         // Obtener el remitente del correo
-<span class="fc" id="L41">        String remitenteEmail = email.getRemitente();</span>
+<span class="fc" id="L39">        String remitenteEmail = email.getRemitente();</span>
 
         // Buscar el remitente en los buzones
-<span class="fc" id="L44">        Optional&lt;Buzon&gt; buzonRemitente = buzones.stream().filter(buzon -&gt; buzon.getCorreoInterno().equals(remitenteEmail)).findFirst();</span>
+<span class="fc" id="L42">        Optional&lt;Buzon&gt; buzonRemitente = buzones.stream().filter(buzon -&gt; buzon.getCorreoInterno().equals(remitenteEmail)).findFirst();</span>
 
         // Si se encuentra el buzon del remitente, agregar el correo a la bandeja de salida del remitente
-<span class="fc" id="L47">        buzonRemitente.ifPresent(remitente -&gt; remitente.getBandejaEnviados().add(email));</span>
+<span class="fc" id="L45">        buzonRemitente.ifPresent(remitente -&gt; remitente.getBandejaEnviados().add(email));</span>
 
         // Obtener los destinatarios del correo como direcciones de correo electrónico
-<span class="fc" id="L50">        List&lt;String&gt; destinatarios = email.getPara();</span>
+<span class="fc" id="L48">        List&lt;String&gt; destinatarios = email.getPara();</span>
 
         // Para cada destinatario, encontrar el Buzon correspondiente y agregar el correo a su bandeja de entrada
-<span class="fc bfc" id="L53" title="All 2 branches covered.">        for (String destinatarioEmail : destinatarios) {</span>
-<span class="fc" id="L54">            Optional&lt;Buzon&gt; buzonDestinatario = buzones.stream().filter(buzon -&gt; buzon.getCorreoInterno().equals(destinatarioEmail)).findFirst();</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (String destinatarioEmail : destinatarios) {</span>
+<span class="fc" id="L52">            Optional&lt;Buzon&gt; buzonDestinatario = buzones.stream().filter(buzon -&gt; buzon.getCorreoInterno().equals(destinatarioEmail)).findFirst();</span>
             
             // Si se encuentra el buzon del destinatario, agregar el correo a su bandeja de entrada
-<span class="fc" id="L57">            buzonDestinatario.ifPresent(destinatario -&gt; destinatario.getBandejaEntrada().add(email));</span>
-<span class="fc" id="L58">        }</span>
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L55">            buzonDestinatario.ifPresent(destinatario -&gt; destinatario.getBandejaEntrada().add(email));</span>
+<span class="fc" id="L56">        }</span>
+<span class="fc" id="L57">    }</span>
 }
 
         

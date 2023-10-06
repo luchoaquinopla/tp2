@@ -44,6 +44,16 @@ public class BuzonTest {
         assertTrue(buzon.getBandejaEntrada().contains(correo2)); // La bandeja de entrada debe contener correo2
         assertTrue(buzon.getBandejaEnviados().contains(correo1)); // La bandeja de enviados debe contener correo1
     }
+    @Test 
+    public void testSetCorreoInterno(){
+        Buzon buzon = new Buzon();
+
+        // Establecer un nuevo correo interno
+        buzon.setCorreoInterno("nuevoCorreo@example.com");
+
+        // Verificar que el correo interno se haya actualizado correctamente
+        assertEquals("nuevoCorreo@example.com", buzon.getCorreoInterno());
+    }
 }
 
 

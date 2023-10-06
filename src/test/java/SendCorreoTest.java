@@ -77,4 +77,5 @@ public class SendCorreoTest {
        assertEquals(buzon3, sendCorreo.getPara().get(0));
        assertEquals(buzon4, sendCorreo.getPara().get(1));
     }
+  
 }
