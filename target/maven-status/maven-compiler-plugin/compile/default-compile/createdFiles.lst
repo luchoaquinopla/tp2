@@ -1,0 +1,9 @@
+com\correo\ucp\FiltroContenido.class
+com\correo\ucp\SendCorreo.class
+com\correo\ucp\FiltroAsuntoRemitente.class
+com\correo\ucp\FiltroRemitente.class
+com\correo\ucp\Contacto.class
+com\correo\ucp\FiltroAsuntoContenido.class
+com\correo\ucp\Buzon.class
+com\correo\ucp\Correo.class
+com\correo\ucp\FiltroAsunto.class
