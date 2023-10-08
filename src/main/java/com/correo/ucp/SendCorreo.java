@@ -34,7 +34,7 @@ public class SendCorreo {
         this.buzones = para;
     }
 
-    public void enviarEmail(Correo email) {
+    public void enviarCorreo(Correo email) {
         // Obtener el remitente del correo
         String remitenteEmail = email.getRemitente();
 

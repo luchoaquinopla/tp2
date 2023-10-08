@@ -33,5 +33,7 @@
     public void setBandejaEntrada(List<Correo> nuevaBandejaEntrada) {
         this.bandejaEntrada = nuevaBandejaEntrada;
     }
-
+     public void setBandejaEnviados(List<Correo> nuevaBandejaEnviados) {
+        this.bandejaEnviados = nuevaBandejaEnviados;
+    }
     }

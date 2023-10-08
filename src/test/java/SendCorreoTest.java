@@ -28,9 +28,9 @@ public class SendCorreoTest {
     
         cartero.agregarbuzones(buzon);
         cartero.agregarbuzones(buzon2);   // Add buzon to the cartero's list of buzones
-        cartero.enviarEmail(correo1);
-        cartero.enviarEmail(correo2);
-        cartero.enviarEmail(correo3);
+        cartero.enviarCorreo(correo1);
+        cartero.enviarCorreo(correo2);
+        cartero.enviarCorreo(correo3);
     
 
         assertEquals(3, buzon.getBandejaEnviados().size());
