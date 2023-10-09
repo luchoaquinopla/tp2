@@ -17,8 +17,8 @@ public class SendCorreo {
         this.email = email;
     }
 
-    public void agregarbuzones(Buzon usuario){
-        buzones.add(usuario);
+    public void agregarbuzones(Buzon buzon){
+        buzones.add(buzon);
     }
 
     public List<Buzon> getPara() {

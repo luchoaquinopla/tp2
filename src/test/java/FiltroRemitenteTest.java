@@ -7,7 +7,9 @@ import org.junit.Test;
 
 import com.correo.ucp.Buzon;
 import com.correo.ucp.Correo;
+import com.correo.ucp.FiltroContenido;
 import com.correo.ucp.FiltroRemitente; // Cambia el nombre de la clase de prueba
+import com.correo.ucp.SendCorreo;
 
 public class FiltroRemitenteTest { // Cambia el nombre de la clase de prueba
     @Test
@@ -34,5 +36,31 @@ public class FiltroRemitenteTest { // Cambia el nombre de la clase de prueba
         assertEquals(4, correosFiltrados.size()); 
         assertEquals("pedro@gmail.com", correosFiltrados.get(0).getRemitente()); 
         assertEquals("pedro@gmail.com", correosFiltrados.get(1).getRemitente());
+    }
+     @Test
+    public void testEnviarYFiltrarPorContenido() {
+        SendCorreo cartero = new SendCorreo();
+        Buzon buzon = new Buzon("correo@gmail.com", new ArrayList<>(), new ArrayList<>());
+
+        // Crear instancias de Correo
+        Correo correo1 = new Correo("Asunto 1", "Perro negro", "correo@gmail.com", "correo1@gmail.com");
+        Correo correo2 = new Correo("Asunto 2", "Gato", "correo@gmail.com", "correo1@gmail.com");
+        Correo correo3 = new Correo("Asunto 3", "Perro azul", "correo@gmail.com", "correo1@gmail.com");
+
+        
+        cartero.agregarbuzones(buzon);
+
+      
+        cartero.enviarCorreo(correo1);
+        cartero.enviarCorreo(correo2);
+        cartero.enviarCorreo(correo3);
+
+        FiltroContenido filtro = new FiltroContenido();
+        List<Correo> correosFiltrados = filtro.filtrarPorContenido(buzon, "Perro");
+
+       
+        assertEquals(2, correosFiltrados.size());
+
+     
     }
 }

@@ -8,22 +8,23 @@ import org.junit.Test;
 import com.correo.ucp.Buzon;
 import com.correo.ucp.Correo;
 import com.correo.ucp.FiltroContenido;
+import com.correo.ucp.FiltroRemitente;
+import com.correo.ucp.SendCorreo;
 
 public class FiltroContenidoTest {
     @Test
     public void testFiltrarPorContenido() {
-        Buzon buzon = new Buzon();
-        List<Correo> bandejaEntrada = new ArrayList<>();
-          List<Correo> bandejaEnviados = new ArrayList<>();
+        Buzon buzon = new Buzon("juan@hotmail.com", new ArrayList<>(),new ArrayList<>());
+
         Correo correo1 = new Correo("Asunto 1", "Contenido 1", "buzon", new ArrayList<>());
         Correo correo2 = new Correo("Asunto 2", "Contenido 2", "buzon", new ArrayList<>());
         Correo correo3 = new Correo("Asunto 1", "Contenido 3", "buzon", new ArrayList<>());
 
-        buzon.setBandejaEntrada(bandejaEntrada); 
+      
         buzon.getBandejaEntrada().add(correo1);
         buzon.getBandejaEntrada().add(correo2);
         buzon.getBandejaEntrada().add(correo3);
-        buzon.setBandejaEnviados(bandejaEnviados); 
+       
         buzon.getBandejaEnviados().add(correo1);
         buzon.getBandejaEnviados().add(correo2);
         buzon.getBandejaEnviados().add(correo3);
@@ -35,5 +36,37 @@ public class FiltroContenidoTest {
         assertEquals("Contenido 1", correosFiltrados.get(0).getContenido());
         assertEquals("Contenido 2", correosFiltrados.get(1).getContenido());
         assertEquals("Contenido 3", correosFiltrados.get(2).getContenido());
+    }
+    @Test
+    public void testEnviarYFiltrarPorRemitente() {
+        SendCorreo cartero = new SendCorreo();
+        Buzon buzon = new Buzon("correo@gmail.com", new ArrayList<>(), new ArrayList<>());
+
+        // Crear instancias de Correo
+        Correo correo1 = new Correo("Asunto 1", "Perro negro", "correo@gmail.com", "correo1@gmail.com");
+        Correo correo2 = new Correo("Asunto 2", "Gato", "correo@gmail.com", "correo1@gmail.com");
+        Correo correo3 = new Correo("Asunto 3", "Perro azul", "correo@gmail.com", "correo1@gmail.com");
+        Correo correo4 = new Correo("Asunto 1", "Perro negro", "correo@hotmail.com", "correo1@gmail.com");
+        Correo correo5 = new Correo("Asunto 2", "Gato", "correo@hotmail.com", "correo1@gmail.com");
+        Correo correo6 = new Correo("Asunto 3", "Perro azul", "correo@hotmail.com", "correo1@gmail.com");
+
+        
+        cartero.agregarbuzones(buzon);
+
+      
+        cartero.enviarCorreo(correo1);
+        cartero.enviarCorreo(correo2);
+        cartero.enviarCorreo(correo3);
+        cartero.enviarCorreo(correo4);
+        cartero.enviarCorreo(correo5);
+        cartero.enviarCorreo(correo6);
+
+        FiltroRemitente filtro = new FiltroRemitente();
+        List<Correo> correosFiltrados = filtro.filtrarPorRemitente(buzon, "@gmail");
+
+       
+        assertEquals(3, correosFiltrados.size());
+
+     
     }
 }
