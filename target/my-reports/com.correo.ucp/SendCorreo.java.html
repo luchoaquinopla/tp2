@@ -17,8 +17,8 @@ public class SendCorreo {
 <span class="fc" id="L17">        this.email = email;</span>
 <span class="fc" id="L18">    }</span>
 
-    public void agregarbuzones(Buzon usuario){
-<span class="fc" id="L21">        buzones.add(usuario);</span>
+    public void agregarbuzones(Buzon buzon){
+<span class="fc" id="L21">        buzones.add(buzon);</span>
 <span class="fc" id="L22">    }</span>
 
     public List&lt;Buzon&gt; getPara() {
@@ -34,7 +34,7 @@ public class SendCorreo {
 <span class="fc" id="L34">        this.buzones = para;</span>
 <span class="fc" id="L35">    }</span>
 
-    public void enviarEmail(Correo email) {
+    public void enviarCorreo(Correo email) {
         // Obtener el remitente del correo
 <span class="fc" id="L39">        String remitenteEmail = email.getRemitente();</span>
 

@@ -1,10 +1,10 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-email,com.correo.ucp,FiltroContenido,0,22,0,0,0,4,0,3,0,3
+email,com.correo.ucp,FiltroContenido,0,51,0,0,0,9,0,4,0,4
 email,com.correo.ucp,Contacto,0,47,0,4,0,18,0,9,0,7
 email,com.correo.ucp,Correo,0,74,0,0,0,25,0,10,0,10
-email,com.correo.ucp,Buzon,0,36,0,0,0,14,0,7,0,7
-email,com.correo.ucp,FiltroAsuntoContenido,0,37,1,5,0,8,1,4,0,2
+email,com.correo.ucp,Buzon,0,40,0,0,0,16,0,8,0,8
+email,com.correo.ucp,FiltroAsuntoContenido,0,71,2,6,0,9,2,6,0,4
 email,com.correo.ucp,SendCorreo,0,105,0,2,0,22,0,12,0,11
-email,com.correo.ucp,FiltroAsunto,0,22,0,0,0,4,0,3,0,3
-email,com.correo.ucp,FiltroAsuntoRemitente,0,37,0,6,0,8,0,5,0,2
-email,com.correo.ucp,FiltroRemitente,0,22,0,0,0,4,0,3,0,3
+email,com.correo.ucp,FiltroAsunto,0,51,0,0,0,9,0,4,0,4
+email,com.correo.ucp,FiltroAsuntoRemitente,0,71,0,8,0,9,0,8,0,4
+email,com.correo.ucp,FiltroRemitente,0,51,0,0,0,9,0,4,0,4
