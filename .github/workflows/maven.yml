@@ -84,10 +84,6 @@ jobs:
           rm -rf .github
           git add .github/
 
-          git checkout -- .gitignore
-          rm .gitignore
-          git add .gitignore
-
           git checkout -- pom.xml
           rm pom.xml
           git add pom.xml
