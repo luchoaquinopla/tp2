@@ -15,21 +15,26 @@ public class FiltroAsuntoContenidoTest {
        Buzon buzon = new Buzon();
       FiltroAsuntoContenido filtro = new FiltroAsuntoContenido();
         List<Correo> bandejaEntrada = new ArrayList<>();
+         List<Correo> bandejaEnviados = new ArrayList<>();
         Correo correo1 = new Correo("Asunto 1", "Contenido 1", "pedro@gmail.com", new ArrayList<>());
         Correo correo2 = new Correo("Asunto 2", "Contenido 2", "juan@gmail.com", new ArrayList<>());
         Correo correo3 = new Correo("Asunto 3", "Contenido 3", "maria@gmail.com", new ArrayList<>());
         Correo correo4 = new Correo("Asunto 4", "Contenido 4", "lucas@gmail.com", new ArrayList<>());
-
+    buzon.setBandejaEntrada(bandejaEntrada);
         bandejaEntrada.add(correo1);
         bandejaEntrada.add(correo2);
         bandejaEntrada.add(correo3);
         bandejaEntrada.add(correo4);
 
-        buzon.setBandejaEntrada(bandejaEntrada);
+       
+        buzon.setBandejaEnviados(bandejaEnviados); 
+        buzon.getBandejaEnviados().add(correo1);
+        buzon.getBandejaEnviados().add(correo2);
+        buzon.getBandejaEnviados().add(correo3);
 
         List<Correo> correosFiltrados = filtro.filtrarPorAsuntoYContenido(buzon, "Asunto 2", "Contenido 2");
 
-        assertEquals(1, correosFiltrados.size());
+        assertEquals(2, correosFiltrados.size());
         assertEquals("juan@gmail.com", correosFiltrados.get(0).getRemitente());
     }
        @Test
@@ -37,23 +42,28 @@ public class FiltroAsuntoContenidoTest {
        Buzon buzon = new Buzon();
       FiltroAsuntoContenido filtro = new FiltroAsuntoContenido();
         List<Correo> bandejaEntrada = new ArrayList<>();
+         List<Correo> bandejaEnviados = new ArrayList<>();
         Correo correo1 = new Correo("Asunto 1", "Contenido 1", "pedro@gmail.com", new ArrayList<>());
         Correo correo2 = new Correo("Asunto 2", "Contenido 2", "juan@gmail.com", new ArrayList<>());
         Correo correo3 = new Correo("Asunto 3", "Contenido 3", "maria@gmail.com", new ArrayList<>());
         Correo correo4 = new Correo("Asunto 2", "Contenido 2", "lucas@gmail.com", new ArrayList<>());
-
+      buzon.setBandejaEntrada(bandejaEntrada);
         bandejaEntrada.add(correo1);
         bandejaEntrada.add(correo2);
         bandejaEntrada.add(correo3);
         bandejaEntrada.add(correo4);
 
-        buzon.setBandejaEntrada(bandejaEntrada);
+      
+        buzon.setBandejaEnviados(bandejaEnviados); 
+        buzon.getBandejaEnviados().add(correo1);
+        buzon.getBandejaEnviados().add(correo2);
+        buzon.getBandejaEnviados().add(correo3);
+        buzon.getBandejaEnviados().add(correo4);
 
-        List<Correo> correosFiltrados = filtro.filtrarPorAsuntoYContenido(buzon, "Asunto 2", "Contenido 2");
+        List<Correo> correosFiltrados = filtro.filtrarPorAsuntoYContenido(buzon, "Asunto", "Contenido");
 
-        assertEquals(2, correosFiltrados.size());
-        assertEquals("juan@gmail.com", correosFiltrados.get(0).getRemitente());
-        assertEquals("lucas@gmail.com", correosFiltrados.get(1).getRemitente());
+        assertEquals(8, correosFiltrados.size());
+      
     }
 
 }

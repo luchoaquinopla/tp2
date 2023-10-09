@@ -14,6 +14,7 @@ public class FiltroContenidoTest {
     public void testFiltrarPorContenido() {
         Buzon buzon = new Buzon();
         List<Correo> bandejaEntrada = new ArrayList<>();
+          List<Correo> bandejaEnviados = new ArrayList<>();
         Correo correo1 = new Correo("Asunto 1", "Contenido 1", "buzon", new ArrayList<>());
         Correo correo2 = new Correo("Asunto 2", "Contenido 2", "buzon", new ArrayList<>());
         Correo correo3 = new Correo("Asunto 1", "Contenido 3", "buzon", new ArrayList<>());
@@ -22,12 +23,15 @@ public class FiltroContenidoTest {
         buzon.getBandejaEntrada().add(correo1);
         buzon.getBandejaEntrada().add(correo2);
         buzon.getBandejaEntrada().add(correo3);
-
+        buzon.setBandejaEnviados(bandejaEnviados); 
+        buzon.getBandejaEnviados().add(correo1);
+        buzon.getBandejaEnviados().add(correo2);
+        buzon.getBandejaEnviados().add(correo3);
         FiltroContenido filtro = new FiltroContenido();
         List<Correo> correosFiltrados = filtro.filtrarPorContenido(buzon, "Contenido");
 
     
-        assertEquals(3, correosFiltrados.size()); 
+        assertEquals(6, correosFiltrados.size()); 
         assertEquals("Contenido 1", correosFiltrados.get(0).getContenido());
         assertEquals("Contenido 2", correosFiltrados.get(1).getContenido());
         assertEquals("Contenido 3", correosFiltrados.get(2).getContenido());
