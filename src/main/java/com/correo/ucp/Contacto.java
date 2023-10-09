@@ -7,19 +7,18 @@ public class Contacto {
     public Contacto(String nombre, String correo) {
         this.nombre = nombre; 
         this.correo = correo;
-        // Validar el correo electrónico antes de asignarlo
+        
         if (validarEmail(correo)) {
             this.correo = correo;
         } else {
-            // Si el correo no es válido, lanzar una excepción o asignar un valor por defecto
-            // En este ejemplo, lanzamos una excepción IllegalArgumentException
+          
             throw new IllegalArgumentException("Correo electrónico inválido");
         }
     }
     
-    // Método para validar el correo electrónico
+   
     public boolean validarEmail(String correo) {
-        // Verificar si contiene "@"
+    
         if (correo.contains("@")) {
             return true;
         } else {

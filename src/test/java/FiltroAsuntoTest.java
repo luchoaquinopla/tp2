@@ -5,7 +5,7 @@ import java.util.List;
 import com.correo.ucp.Correo;
 
 import com.correo.ucp.FiltroAsunto;
-import com.correo.ucp.FiltroContenido;
+
 import com.correo.ucp.SendCorreo;
 
 import static org.junit.Assert.assertEquals;
@@ -34,9 +34,9 @@ public class FiltroAsuntoTest {
         buzon.getBandejaEnviados().add(correo3);
 
         FiltroAsunto filtro = new FiltroAsunto();
-        List<Correo> correosFiltrados = filtro.filtrarPorAsunto(buzon, "Asunto 1"); // Cambia el asunto de búsqueda
+        List<Correo> correosFiltrados = filtro.filtrarPorAsunto(buzon, "Asunto 1"); 
         
-        assertEquals(4, correosFiltrados.size()); // Verifica que la lista esté vacía
+        assertEquals(4, correosFiltrados.size());
     }
         @Test
     public void testEnviarYFiltrarPorAsunto() {

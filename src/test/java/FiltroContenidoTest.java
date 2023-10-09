@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.correo.ucp.Buzon;
 import com.correo.ucp.Correo;
 import com.correo.ucp.FiltroContenido;
-import com.correo.ucp.FiltroRemitente;
+
 import com.correo.ucp.SendCorreo;
 
 public class FiltroContenidoTest {

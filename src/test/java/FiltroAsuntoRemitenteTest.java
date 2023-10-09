@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import com.correo.ucp.Buzon;
 import com.correo.ucp.Correo;
-import com.correo.ucp.FiltroAsuntoContenido;
+
 import com.correo.ucp.FiltroAsuntoRemitente;
 import com.correo.ucp.SendCorreo;
 

@@ -7,13 +7,13 @@ import org.junit.Test;
 
 import com.correo.ucp.Buzon;
 import com.correo.ucp.Correo;
-import com.correo.ucp.FiltroContenido;
-import com.correo.ucp.FiltroRemitente; // Cambia el nombre de la clase de prueba
+
+import com.correo.ucp.FiltroRemitente; 
 import com.correo.ucp.SendCorreo;
 
-public class FiltroRemitenteTest { // Cambia el nombre de la clase de prueba
+public class FiltroRemitenteTest {
     @Test
-    public void testFiltrarPorRemitente() { // Cambia el nombre del método de prueba
+    public void testFiltrarPorRemitente() {
         Buzon buzon = new Buzon();
         List<Correo> bandejaEntrada = new ArrayList<>();
         List<Correo> bandejaEnviados = new ArrayList<>();

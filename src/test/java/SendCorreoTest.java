@@ -2,7 +2,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 
 import org.junit.Test;
@@ -40,19 +40,19 @@ public class SendCorreoTest {
     }
      @Test
     public void testConstructorSendCorreo() {
-        // Crear una lista de buzones y un objeto Correo
+      
         Buzon buzon1 = new Buzon("usuario1@gmail.com", new ArrayList<>(), new ArrayList<>());
         Buzon buzon2 = new Buzon("usuario2@gmail.com", new ArrayList<>(), new ArrayList<>());
         Correo correo = new Correo("Asunto", "Contenido", "remitente@gmail.com", "destinatario@gmail.com");
         
-        // Crear un objeto SendCorreo utilizando el constructor
+      
         SendCorreo sendCorreo = new SendCorreo(List.of(buzon1, buzon2), correo);
         
-        // Verificar que la lista de buzones se haya copiado correctamente
+        
         assertNotNull(sendCorreo.getPara());
         assertEquals(2, sendCorreo.getPara().size());
         
-        // Verificar que el objeto Correo se haya asignado correctamente
+       
         assertNotNull(sendCorreo.getEmail());
         assertEquals("Asunto", sendCorreo.getEmail().getAsunto());
         assertEquals("Contenido", sendCorreo.getEmail().getContenido());
@@ -69,12 +69,12 @@ public class SendCorreoTest {
        Buzon buzon4 = new Buzon("usuario4@example.com", new ArrayList<>(), new ArrayList<>());
        List<Buzon> nuevaListaBuzones = List.of(buzon3, buzon4);
 
-       // Establecer la nueva lista de buzones utilizando setPara
+    
        sendCorreo.setPara(nuevaListaBuzones);
 
-       // Verificar que la lista de buzones se haya actualizado correctamente
+      
        assertNotNull(sendCorreo.getPara());
-       assertEquals(2, sendCorreo.getPara().size()); // Debería seguir siendo 2
+       assertEquals(2, sendCorreo.getPara().size()); 
        assertEquals(buzon3, sendCorreo.getPara().get(0));
        assertEquals(buzon4, sendCorreo.getPara().get(1));
     }

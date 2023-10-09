@@ -2,12 +2,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
+
 
 import org.junit.Test;
 
 import com.correo.ucp.Contacto;
-import com.correo.ucp.Correo;
+
 
 public class ContactoTest {
     @Test

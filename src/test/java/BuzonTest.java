@@ -23,35 +23,34 @@ public class BuzonTest {
     @Test
     public void testAgregarElementos() {
       
-        // Crear una instancia de Buzon
+    
         Buzon buzon = new Buzon("correo@example.com", new ArrayList <>(), new ArrayList<>());
 
-        // Crear instancias de Correo
+        
         Correo correo1 = new Correo("Asunto 1", "Contenido 1", "remitente", new ArrayList<>());
         Correo correo2 = new Correo("Asunto 2", "Contenido 2", "remitente", new ArrayList<>());
 
-        // Agregar elementos a la bandeja de entrada
         buzon.getBandejaEntrada().add(correo1);
         buzon.getBandejaEntrada().add(correo2);
 
-        // Agregar elementos a la bandeja de enviados
+        
         buzon.getBandejaEnviados().add(correo1);
 
-        // Verificar si los elementos se han agregado correctamente
-        assertEquals(2, buzon.getBandejaEntrada().size()); // Debería haber 2 elementos en la bandeja de entrada
-        assertEquals(1, buzon.getBandejaEnviados().size()); // Debería haber 1 elemento en la bandeja de enviados
-        assertTrue(buzon.getBandejaEntrada().contains(correo1)); // La bandeja de entrada debe contener correo1
-        assertTrue(buzon.getBandejaEntrada().contains(correo2)); // La bandeja de entrada debe contener correo2
-        assertTrue(buzon.getBandejaEnviados().contains(correo1)); // La bandeja de enviados debe contener correo1
+      
+        assertEquals(2, buzon.getBandejaEntrada().size()); 
+        assertEquals(1, buzon.getBandejaEnviados().size()); 
+        assertTrue(buzon.getBandejaEntrada().contains(correo1)); 
+        assertTrue(buzon.getBandejaEntrada().contains(correo2)); 
+        assertTrue(buzon.getBandejaEnviados().contains(correo1)); 
     }
     @Test 
     public void testSetCorreoInterno(){
         Buzon buzon = new Buzon();
 
-        // Establecer un nuevo correo interno
+       
         buzon.setCorreoInterno("nuevoCorreo@example.com");
 
-        // Verificar que el correo interno se haya actualizado correctamente
+      
         assertEquals("nuevoCorreo@example.com", buzon.getCorreoInterno());
     }
 }
