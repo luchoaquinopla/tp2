@@ -2,10 +2,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 
 import org.junit.Test;
 
 import com.correo.ucp.Contacto;
+import com.correo.ucp.Correo;
 
 public class ContactoTest {
     @Test
@@ -56,18 +58,10 @@ public class ContactoTest {
     contacto.setCorreo("pepe@gmail.com");
     assertEquals("pepe@gmail.com", contacto.getCorreo());
  }
-    @Test
-    public void testCrearContactoConCorreoInvalido() {
-        try {
-          
-           Contacto contacto = new Contacto("Juan", "correo.invalido");
-            
-           
-            
-        } catch (IllegalArgumentException e) {
-          
-           
-        }
-    }
+ 
+     @Test(expected = IllegalArgumentException.class)
+   public void testContactoInvalido() {
+       new Contacto("lucho", "luchogmail.com");
+   }
 
 }

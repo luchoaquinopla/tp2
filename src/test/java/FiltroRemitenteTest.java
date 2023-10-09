@@ -37,8 +37,8 @@ public class FiltroRemitenteTest { // Cambia el nombre de la clase de prueba
         assertEquals("pedro@gmail.com", correosFiltrados.get(0).getRemitente()); 
         assertEquals("pedro@gmail.com", correosFiltrados.get(1).getRemitente());
     }
-     @Test
-    public void testEnviarYFiltrarPorContenido() {
+    @Test
+    public void testEnviarYFiltrarPorRemitente() {
         SendCorreo cartero = new SendCorreo();
         Buzon buzon = new Buzon("correo@gmail.com", new ArrayList<>(), new ArrayList<>());
 
@@ -46,6 +46,9 @@ public class FiltroRemitenteTest { // Cambia el nombre de la clase de prueba
         Correo correo1 = new Correo("Asunto 1", "Perro negro", "correo@gmail.com", "correo1@gmail.com");
         Correo correo2 = new Correo("Asunto 2", "Gato", "correo@gmail.com", "correo1@gmail.com");
         Correo correo3 = new Correo("Asunto 3", "Perro azul", "correo@gmail.com", "correo1@gmail.com");
+        Correo correo4 = new Correo("Asunto 1", "Perro negro", "correo@hotmail.com", "correo1@gmail.com");
+        Correo correo5 = new Correo("Asunto 2", "Gato", "correo@hotmail.com", "correo1@gmail.com");
+        Correo correo6 = new Correo("Asunto 3", "Perro azul", "correo@hotmail.com", "correo1@gmail.com");
 
         
         cartero.agregarbuzones(buzon);
@@ -54,12 +57,15 @@ public class FiltroRemitenteTest { // Cambia el nombre de la clase de prueba
         cartero.enviarCorreo(correo1);
         cartero.enviarCorreo(correo2);
         cartero.enviarCorreo(correo3);
+        cartero.enviarCorreo(correo4);
+        cartero.enviarCorreo(correo5);
+        cartero.enviarCorreo(correo6);
 
-        FiltroContenido filtro = new FiltroContenido();
-        List<Correo> correosFiltrados = filtro.filtrarPorContenido(buzon, "Perro");
+        FiltroRemitente filtro = new FiltroRemitente();
+        List<Correo> correosFiltrados = filtro.filtrarPorRemitente(buzon, "@gmail");
 
        
-        assertEquals(2, correosFiltrados.size());
+        assertEquals(3, correosFiltrados.size());
 
      
     }

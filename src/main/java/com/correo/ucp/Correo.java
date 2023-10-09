@@ -7,48 +7,62 @@ public class Correo {
     private String asunto;
     private String contenido;
     private String remitente;
-    private List<String > para = new ArrayList<>();
-    
-    public Correo(String asunto, String contenido,String remitente, String  paraUnico ){
-      this.asunto = asunto; 
-      this.contenido = contenido;
-      this.remitente = remitente;
-      this.para.add(paraUnico);
+    private List<String> para = new ArrayList<>();
+
+    public Correo(String asunto, String contenido, String remitente, String destinatario) {
+        this.asunto = asunto;
+        this.contenido = contenido;
+        if (remitente == null || remitente.isEmpty()) {
+            throw new IllegalArgumentException("El remitente no puede estar vacío.");
+        }
+        this.remitente = remitente;
+        this.para.add(destinatario);
+    }
+
+    public Correo(String asunto, String contenido, String remitente, List<String> paraVarios) {
+        this.asunto = asunto;
+        this.contenido = contenido;
+        if (remitente == null || remitente.isEmpty()) {
+            throw new IllegalArgumentException("El remitente no puede estar vacío.");
+        }
+        this.remitente = remitente;
+        this.para = paraVarios;
+    }
+
+    public Correo() {
 
     }
-    public Correo(String asunto, String contenido,String  remitente, List<String >paraVarios){
-      this.asunto = asunto; 
-      this.contenido = contenido;
-      this.remitente = remitente;
-      this.para = paraVarios;
 
+    public String getAsunto() {
+        return asunto;
     }
-    public Correo(){
 
+    public String getContenido() {
+        return contenido;
     }
-       public String getAsunto() {
-          return asunto;
-      }
-  
-      public String getContenido() {
-          return contenido;
-      }
-      public String  getRemitente() {
+
+    public String getRemitente() {
         return remitente;
     }
-     
-      public void setAsunto(String nuevoAsunto){
+
+    public void setAsunto(String nuevoAsunto) {
         this.asunto = nuevoAsunto;
-      }
-        public void setContenido(String nuevoContenido){
-          this.contenido = nuevoContenido;
-      }
-        public void setRemitente(String  nuevoRemitente) {
+    }
+
+    public void setContenido(String nuevoContenido) {
+        this.contenido = nuevoContenido;
+    }
+
+    public void setRemitente(String nuevoRemitente) {
+        if (nuevoRemitente == null || nuevoRemitente.isEmpty()) {
+            throw new IllegalArgumentException("El remitente no puede estar vacío.");
+        }
         this.remitente = nuevoRemitente;
     }
-    public List<String > getPara() {
-      return para;
-  }
-   
+
+    public List<String> getPara() {
+        return para;
     }
+}
+
 

@@ -37,8 +37,9 @@ public class FiltroContenidoTest {
         assertEquals("Contenido 2", correosFiltrados.get(1).getContenido());
         assertEquals("Contenido 3", correosFiltrados.get(2).getContenido());
     }
+   
     @Test
-    public void testEnviarYFiltrarPorRemitente() {
+    public void testEnviarYFiltrarPorContenido() {
         SendCorreo cartero = new SendCorreo();
         Buzon buzon = new Buzon("correo@gmail.com", new ArrayList<>(), new ArrayList<>());
 
@@ -46,9 +47,6 @@ public class FiltroContenidoTest {
         Correo correo1 = new Correo("Asunto 1", "Perro negro", "correo@gmail.com", "correo1@gmail.com");
         Correo correo2 = new Correo("Asunto 2", "Gato", "correo@gmail.com", "correo1@gmail.com");
         Correo correo3 = new Correo("Asunto 3", "Perro azul", "correo@gmail.com", "correo1@gmail.com");
-        Correo correo4 = new Correo("Asunto 1", "Perro negro", "correo@hotmail.com", "correo1@gmail.com");
-        Correo correo5 = new Correo("Asunto 2", "Gato", "correo@hotmail.com", "correo1@gmail.com");
-        Correo correo6 = new Correo("Asunto 3", "Perro azul", "correo@hotmail.com", "correo1@gmail.com");
 
         
         cartero.agregarbuzones(buzon);
@@ -57,15 +55,12 @@ public class FiltroContenidoTest {
         cartero.enviarCorreo(correo1);
         cartero.enviarCorreo(correo2);
         cartero.enviarCorreo(correo3);
-        cartero.enviarCorreo(correo4);
-        cartero.enviarCorreo(correo5);
-        cartero.enviarCorreo(correo6);
 
-        FiltroRemitente filtro = new FiltroRemitente();
-        List<Correo> correosFiltrados = filtro.filtrarPorRemitente(buzon, "@gmail");
+        FiltroContenido filtro = new FiltroContenido();
+        List<Correo> correosFiltrados = filtro.filtrarPorContenido(buzon, "Perro");
 
        
-        assertEquals(3, correosFiltrados.size());
+        assertEquals(2, correosFiltrados.size());
 
      
     }

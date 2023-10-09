@@ -77,6 +77,12 @@ public void testCrearNuevoCorreo() {
           assertEquals("pupu@gmail.com",correo.getPara().get(2));
        
     }
+    @Test(expected = IllegalArgumentException.class)
+   public void testCorreoInvalido() {
+       new Correo("Asunto", "Contenido", "", new ArrayList<>());
+   }
+  
+
 }
 
 

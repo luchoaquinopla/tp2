@@ -27,7 +27,7 @@ public class SendCorreoTest {
         Correo correo3 = new Correo("Asunto 1", "Contenido 1", "correo@example.com", "correo@example.com");
     
         cartero.agregarbuzones(buzon);
-        cartero.agregarbuzones(buzon2);   // Add buzon to the cartero's list of buzones
+        cartero.agregarbuzones(buzon2);   
         cartero.enviarCorreo(correo1);
         cartero.enviarCorreo(correo2);
         cartero.enviarCorreo(correo3);
@@ -35,6 +35,7 @@ public class SendCorreoTest {
 
         assertEquals(3, buzon.getBandejaEnviados().size());
         assertEquals(2, buzon2.getBandejaEntrada().size());
+        
         
     }
      @Test
